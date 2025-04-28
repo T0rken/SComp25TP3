@@ -101,10 +101,15 @@ La dirección que aparece en el script del linker de BIOS es la dirección de me
 
 3. Comparar la salida de objdump con hd, verifique donde fue colocado el programa dentro de la imagen.
 
+Con **objdump**, se obtiene la dirección de memoria a la que apunta un programa, mientras que con **hd** se obtiene en qué offset real dentro del archivo están las instrucciones. Es decir, comparándolos se puede ver si el código comienza en la dirección que pidió el linker. 
+
+4. Grabar la imagen en un pendrive y probarla en una pc y subir una foto.
 
 
-4. Grabar la imagen en un pendrive y probarla en una pc y subir una foto .
+
 5. ¿Para qué se utiliza la opción --oformat binary en el linker?
+
+La opción `--oformat binary` le pide al linker una salida en formato binario puro. Esto significa que no tendrá cabeceras, secciones ni símbolos.
 
 ### Código assembler
 
