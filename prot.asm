@@ -1,25 +1,18 @@
-[BITS 16]               ; Estamos en modo real (arranque)
+[BITS 16]               ; Estando en modo real
 
 cli                     ; Deshabilitar interrupciones
 
 lgdt [gdt_descriptor]   ; Cargar la GDT
 
-mov eax, cr0            ; Habilitar el bit PE (Protection Enable)
+mov eax, cr0            ; Habilitar el bit PE
 or eax, 1
 mov cr0, eax
 
-jmp 0x08:protected_mode_entry   ; Salto lejano a modo protegido
+jmp 0x08:pm_start   ; Salto lejano a modo protegido
 
-; ----------------------------------------------------------------
-; GDT (Global Descriptor Table)
+; GDT
 gdt_start:
-    ; Descriptor nulo (obligatorio)
-    dw 0x0000
-    dw 0x0000
-    db 0x00
-    db 0x00
-    db 0x00
-    db 0x00
+    dq 0x0000000000000000
 
     ; Descriptor de código: base=0, límite=4GB
     dw 0xFFFF
@@ -35,32 +28,27 @@ gdt_descriptor:
     dw gdt_end - gdt_start - 1   ; Tamaño de la GDT - 1
     dd gdt_start                 ; Dirección base de la GDT
 
-; ----------------------------------------------------------------
-[BITS 32]               ; Ahora estamos en modo protegido
+[BITS 32]               ; Ahora en modo protegido
 
-protected_mode_entry:
+pm_start:
 
-    ; Dirección base de VRAM
     mov esi, 0x0000           ; Offset dentro del segmento VRAM
     mov ax, 0xB800            ; Segmento de VRAM
     mov es, ax                ; Configurar ES para apuntar a VRAM
 
-    ; Cargar el mensaje en memoria
     mov edi, message          ; Dirección del mensaje
     mov ecx, message_length   ; Cantidad de caracteres
 
 write_loop:
-    lodsb                     ; Cargar un byte (carácter) de [edi] en AL, avanzar EDI
+    lodsb                     ; Cargar un byte de [EDI] en AL, avanzar EDI
     mov ah, 0x0F              ; Atributo: blanco sobre negro
-    stosw                     ; Guardar AX (carácter + atributo) en [ESI], avanzar ESI
+    stosw                     ; Guardar AX en [ESI], avanzar ESI
     loop write_loop           ; Repetir para todos los caracteres
 
 hang:
     hlt
     jmp hang                  ; Bucle infinito
 
-; ----------------------------------------------------------------
 ; Datos
 message db 'hola, puntos flotantes', 0
 message_length equ $ - message
-
