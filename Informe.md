@@ -105,6 +105,15 @@ Con **objdump**, se obtiene la dirección de memoria a la que apunta un programa
 
 4. Grabar la imagen en un pendrive y probarla en una pc y subir una foto.
 
+Para probar esto, se cargo la imagen protected_mode.img con su texto modificado en un pendrive y se booteo desde el mismo una pc real utilizando en la Terminal el comando:
+
+```sudo dd if=protected_mode.img of=/dev/sda```
+
+
+![Imagen N°0, programa de ejemplo modificado cargado a un pendrive](img/Screenshot from_2025-04-28_14-21-28.png)
+
+Luego, booteando la PC de manera correcta y desde el pendrive, se observa lo siguiente:
+
 ![Imagen N°1, programa de ejemplo modificado corriendo desde un USB](img/usb.jpeg)
 
 5. ¿Para qué se utiliza la opción --oformat binary en el linker?
