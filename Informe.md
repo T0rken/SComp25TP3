@@ -123,7 +123,10 @@ Se comienza en modo real y luego se actualizan los valores del Global Descriptor
 
 En la segunda iteración, prot2.asm, se tiene un GDT con dos descriptores diferentes, uno para código y uno para datos, además de ambos segmentos y los saltos correspondientes.
 
-3. Cambiar los bits de acceso del segmento de datos para que sea de solo lectura,  intentar escribir, ¿qué sucede? ¿Qué debería suceder a continuación? (revisar el teórico) Verificarlo con gdb. 
+3. Cambiar los bits de acceso del segmento de datos para que sea de solo lectura,  intentar escribir, ¿qué sucede? ¿Qué debería suceder a continuación? (revisar el teórico) Verificarlo con gdb.
+
+Para que sea solo lectura, el único cambio es un bit, en la línea 30. En prot2.asm, es `db 10010010b`, mientras que en prot3.asm es `db 10010000b`. Ese bit cambia el acceso a solo lectura. No se permite escribir y se debería obtener una General Protection Fault.
+
 4. En modo protegido, ¿con qué valor se cargan los registros de segmento? ¿Por qué?
 
 ### Ejemplos de código para x86
