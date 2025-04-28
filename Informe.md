@@ -32,6 +32,29 @@ Se puede utilizar UEFI programando en C una de esas apps particulares con la ext
 usa una función de UEFI.
 
 2. Mencionar casos de bugs de UEFI que puedan ser explotados.
+
+Los bugs en UEFI no solo existen, sino que además han sido explotados en la práctica. Algunos ejemplos de bugs y exploits reales en UEFI son:
+
+- LoJax (2018):
+    * Fue el primer malware detectado que infectó el firmware UEFI.
+    * Modificaba el UEFI para persistir incluso después de formatear el disco o reinstalar el sistema operativo.
+    * Lo desarrolló el grupo _APT28_ (relacionado con amenazas avanzadas persistentes).
+
+- MoonBounce (2022):
+    * Otro malware UEFI, descubierto por _Kaspersky_.
+    * Infectaba la memoria flash SPI (donde está el firmware UEFI) y sobrevivía a reinstalaciones.
+    * Era aún más sofisticado, ya que no dejaba rastros en disco duro.
+
+- Fallos de BIOS de fabricantes (2019-2023):
+    * Lenovo, Dell, HP, Fujitsu, ASUS y otros han tenido múltiples vulnerabilidades serias en sus firmwares.
+    * Muchas de esas fallas permitían:
+        - Escalada de privilegios.
+        - Inyección de código malicioso antes de arrancar el sistema operativo.
+        - Desactivación de protecciones como Secure Boot.
+
+- BINARIES Firmados con fallos de seguridad:
+    - A veces los fabricantes publicaban firmwares "firmados" (firmware que ha sido autenticado y verificado mediante un proceso de firma digital), pero que contenian bugs que podían ser aprovechados antes de que se verifiquen firmas digitales.
+
 3. ¿Qué es Converged Security and Management Engine (CSME), the Intel Management Engine BIOS Extension (Intel MEBx)?
 4. ¿Qué es coreboot? ¿Qué productos lo incorporan ? ¿Cuáles son las ventajas de su utilización?
 
