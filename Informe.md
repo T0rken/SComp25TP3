@@ -105,7 +105,7 @@ Con **objdump**, se obtiene la dirección de memoria a la que apunta un programa
 
 4. Grabar la imagen en un pendrive y probarla en una pc y subir una foto.
 
-![Imagen N°3, programa de ejemplo modificado corriendo desde un USB](img/usb.jpeg)
+![Imagen N°1, programa de ejemplo modificado corriendo desde un USB](img/usb.jpeg)
 
 5. ¿Para qué se utiliza la opción --oformat binary en el linker?
 
@@ -131,17 +131,19 @@ Para que sea solo lectura, el único cambio es un bit, en la línea 33. Es `db 1
 
 En modo protegido, los registros de segmento se cargan con selectores de segmento, que son índices en las tablas de descriptores local o global (LDT o GDT). Los selectores son de 16 bits, incluyendo 13 bits de índice de descriptor y 3 de atributos de acceso. Se maneja el acceso a los segmentos de esta manera porque se protege mejor la memoria, controlando el acceso a ellos y no limitándose a una distribución física de segmentos en concreto, aumentando la abstracción.
 
+![Imagen N°2, bios_hello_world](img/asm.png)
+
 ### Ejemplos de código para x86
 
-En la imagen N°1
+En la imagen N°3
 
-![Imagen N°1, bios_hello_world](img/qemu-1.png)
+![Imagen N°3, bios_hello_world](img/qemu-1.png)
 
 se puede observar el resultado de ejecutar el programa bios_hello_world de los ejemplos de código. En este, se puede ver que se está utilizando el firmware libre iPXE, con dirección PCI 00:03.0 y versión de PCI 2.10. Después menciona algunas direcciones de memoria que este programa utiliza.
 
-En la imagen N°2
+En la imagen N°4
 
-![Imagen N°2, depurado](img/qemu-2.png)
+![Imagen N°4, depurado](img/qemu-2.png)
 
 se utilizó gdb dashboard y la instrucción debug para ver más detalles sobre la ejecución del mismo ejemplo. Se puede ver cómo la primera dirección de memoria es 0x00007c00 y que esto se corresponde a la quinta línea del programa. También se muestra cómo se tienen dos hilos, el segundo de los cuales se corresponde al programa en cuestión.
 
