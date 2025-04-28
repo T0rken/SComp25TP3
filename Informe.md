@@ -117,7 +117,12 @@ La opción `--oformat binary` le pide al linker una salida en formato binario pu
 
 El programa se encuentra en el archivo prot.asm. 
 
-2. ¿Cómo sería un programa que tenga dos descriptores de memoria diferentes, uno para cada segmento (código y datos) en espacios de memoria diferenciados? 
+Se comienza en modo real y luego se actualizan los valores del Global Descriptor Table (GDT) y se entra en modo protegido, donde se imprime un saludo.
+
+2. ¿Cómo sería un programa que tenga dos descriptores de memoria diferentes, uno para cada segmento (código y datos) en espacios de memoria diferenciados?
+
+En la segunda iteración, prot2.asm, se tiene un GDT con dos descriptores diferentes, uno para código y uno para datos, además de ambos segmentos y los saltos correspondientes.
+
 3. Cambiar los bits de acceso del segmento de datos para que sea de solo lectura,  intentar escribir, ¿qué sucede? ¿Qué debería suceder a continuación? (revisar el teórico) Verificarlo con gdb. 
 4. En modo protegido, ¿con qué valor se cargan los registros de segmento? ¿Por qué?
 
