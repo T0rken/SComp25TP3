@@ -96,7 +96,13 @@ Un linker es un programa que combina uno o más archivos de código ya compilado
 En el caso de BIOS, lo que se genera a la salida del linker son archivos .bin, mientras que para UEFI son archivos .efi, que luego es cargado como si fuese un sistema operativo pequeño.
 
 2. ¿Qué es la dirección que aparece en el script del linker? ¿Por qué es necesaria?
-3. Comparar la salida de objdump con hd, verifique donde fue colocado el programa dentro de la imagen. 
+
+La dirección que aparece en el script del linker de BIOS es la dirección de memoria donde debe empezar el código una vez que está cargado. Es necesaria para poder calcular las direcciones relativas, además de para poder asegurarse de que los saltos, llamadas a funciones y accesos de datos funcionen como se espera. 
+
+3. Comparar la salida de objdump con hd, verifique donde fue colocado el programa dentro de la imagen.
+
+
+
 4. Grabar la imagen en un pendrive y probarla en una pc y subir una foto .
 5. ¿Para qué se utiliza la opción --oformat binary en el linker?
 
