@@ -129,6 +129,8 @@ Para que sea solo lectura, el único cambio es un bit, en la línea 30. En prot2
 
 4. En modo protegido, ¿con qué valor se cargan los registros de segmento? ¿Por qué?
 
+En modo protegido, los registros de segmento se cargan con selectores de segmento, que son índices en las tablas de descriptores local o global (LDT o GDT). Los selectores son de 16 bits, incluyendo 13 bits de índice de descriptor y 3 de atributos de acceso. Se maneja el acceso a los segmentos de esta manera porque se protege mejor la memoria, controlando el acceso a ellos y no limitándose a una distribución física de segmentos en concreto, aumentando la abstracción.
+
 ### Ejemplos de código para x86
 
 
