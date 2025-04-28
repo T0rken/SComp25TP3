@@ -56,6 +56,31 @@ Los bugs en UEFI no solo existen, sino que además han sido explotados en la pr�
     - A veces los fabricantes publicaban firmwares "firmados" (firmware que ha sido autenticado y verificado mediante un proceso de firma digital), pero que contenian bugs que podían ser aprovechados antes de que se verifiquen firmas digitales.
 
 3. ¿Qué es Converged Security and Management Engine (CSME), the Intel Management Engine BIOS Extension (Intel MEBx)?
+
+El **Converged Security and Management Engine (CSME)** y la **Intel Management Engine BIOS Extension (Intel MEBx)** son tecnologías de seguridad y gestión integradas en los sistemas basados en procesadores Intel, que están diseñadas para proporcionar control, administración y seguridad en los dispositivos sin intervención del sistema operativo principal.
+
+* __Converged Security and Management Engine (CSME)__
+
+    El CSME es un sub-sistema embebido en los procesadores Intel modernos que opera como un microcontrolador independiente dentro del chipset de la computadora. Funciona de manera autónoma y con acceso directo al hardware del sistema, lo que le permite ejecutar varias funciones críticas sin depender del sistema operativo o de los controladores principales.
+    
+    Algunas de sus funciones claves son:
+    - Seguridad: El CSME proporciona un conjunto de características de seguridad avanzadas, como encriptación, autenticación y protección contra ataques maliciosos. Un ejemplo es la protección de claves criptográficas a través de hardware.
+    - Gestión Remota: Facilita las capacidades de administración de dispositivos a nivel de hardware. Esto es particularmente útil para entornos empresariales, donde los administradores pueden gestionar sistemas de manera remota, incluso cuando el sistema operativo principal no está en funcionamiento.
+    - Protección de datos: Ayuda a proteger la confidencialidad y la integridad de los datos almacenados en dispositivos al cifrarlos de manera transparente para el usuario final.
+    - Arranque Seguro: El CSME está involucrado en la implementación de medidas de arranque seguro, lo que significa que asegura que el firmware y el sistema operativo no hayan sido comprometidos antes de que el sistema se inicie.
+
+* __Intel Management Engine BIOS Extension (Intel MEBx)__
+
+    El Intel MEBx es una interfaz de usuario que forma parte de la tecnología _Intel Active Management Technology (AMT)_, la cual es utilizada para administrar y controlar computadoras de forma remota a través del CSME. La MEBx permite a los administradores de sistemas configurar y administrar las funcionalidades de la tecnología Intel AMT.
+
+    Entre sus funciones mas importantes encontramos:
+    - Interfaz de configuración: El Intel MEBx proporciona una interfaz que permite a los administradores de IT configurar características de gestión remota del sistema, como encender o apagar un dispositivo de manera remota, incluso si el sistema operativo no está funcionando.
+    - Acceso al firmware de administración: El MEBx permite configurar diversos parámetros del Intel Management Engine a través de un conjunto de menús en una interfaz de texto, que se accede durante el proceso de arranque del sistema.
+    - Gestión remota y diagnóstico: Junto con AMT, MEBx permite a los administradores acceder y diagnosticar computadoras de forma remota, incluso si el sistema operativo ha fallado o el dispositivo no está encendido, ya que se ejecuta en un nivel de hardware más bajo.
+    - Seguridad en el arranque: A través del MEBx, los administradores pueden gestionar configuraciones de arranque seguro y otras características relacionadas con la seguridad a nivel de hardware.
+
+A pesar de todos sus beneficios, estas tecnologías también han sido **objeto de controversia** en términos de **privacidad** y **seguridad**, ya que permiten acceso a los dispositivos sin la intervención del sistema operativo. Debido a que CSME tiene acceso directo al hardware, podría ser un vector de ataque en manos equivocadas, ya que funciona de manera independiente del sistema operativo.
+
 4. ¿Qué es coreboot? ¿Qué productos lo incorporan ? ¿Cuáles son las ventajas de su utilización?
 
 ### Linker
