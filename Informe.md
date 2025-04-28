@@ -133,7 +133,17 @@ En modo protegido, los registros de segmento se cargan con selectores de segment
 
 ### Ejemplos de código para x86
 
+En la imagen N°1
 
+![Imagen N°1, bios_hello_world](img/qemu-1.png)
+
+se puede observar el resultado de ejecutar el programa bios_hello_world de los ejemplos de código. En este, se puede ver que se está utilizando el firmware libre iPXE, con dirección PCI 00:03.0 y versión de PCI 2.10. Después menciona algunas direcciones de memoria que este programa utiliza.
+
+En la imagen N°2
+
+![Imagen N°2, depurado](img/qemu-2.png)
+
+se utilizó gdb dashboard y la instrucción debug para ver más detalles sobre la ejecución del mismo ejemplo. Se puede ver cómo la primera dirección de memoria es 0x00007c00 y que esto se corresponde a la quinta línea del programa. También se muestra cómo se tienen dos hilos, el segundo de los cuales se corresponde al programa en cuestión.
 
 ## Conclusión
 
