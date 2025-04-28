@@ -105,7 +105,7 @@ Con **objdump**, se obtiene la dirección de memoria a la que apunta un programa
 
 4. Grabar la imagen en un pendrive y probarla en una pc y subir una foto.
 
-
+![Imagen N°3, programa de ejemplo modificado corriendo desde un USB](img/usb.jpeg)
 
 5. ¿Para qué se utiliza la opción --oformat binary en el linker?
 
@@ -121,11 +121,11 @@ Se comienza en modo real y luego se actualizan los valores del Global Descriptor
 
 2. ¿Cómo sería un programa que tenga dos descriptores de memoria diferentes, uno para cada segmento (código y datos) en espacios de memoria diferenciados?
 
-En la segunda iteración, prot2.asm, se tiene un GDT con dos descriptores diferentes, uno para código y uno para datos, además de ambos segmentos y los saltos correspondientes.
+En la segunda iteración de prot.asm, se tiene un GDT con dos descriptores diferentes, uno para código y uno para datos, además de ambos segmentos y los saltos correspondientes.
 
 3. Cambiar los bits de acceso del segmento de datos para que sea de solo lectura,  intentar escribir, ¿qué sucede? ¿Qué debería suceder a continuación? (revisar el teórico) Verificarlo con gdb.
 
-Para que sea solo lectura, el único cambio es un bit, en la línea 30. En prot2.asm, es `db 10010010b`, mientras que en prot3.asm es `db 10010000b`. Ese bit cambia el acceso a solo lectura. No se permite escribir y se debería obtener una General Protection Fault.
+Para que sea solo lectura, el único cambio es un bit, en la línea 33. Es `db 10010010b` si se quiere escribir, mientras que en es `db 10010000b` si no se lo permite. Ese bit cambia el acceso a solo lectura. No se permite escribir y se debería obtener una General Protection Fault. Lo que se ve es que el programa queda en un bucle porque se encuentra con que no puede terminar de ejecutar el código.
 
 4. En modo protegido, ¿con qué valor se cargan los registros de segmento? ¿Por qué?
 

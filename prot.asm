@@ -30,7 +30,7 @@ gdt_start:
     dw 0xFFFF
     dw 0x0000
     db 0x00
-    db 10010010b
+    db 10010010b        ; db 10010000b si se quiere que no tenga acceso para escribir
     db 11001111b
     db 0x00
 
