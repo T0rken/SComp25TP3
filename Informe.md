@@ -90,7 +90,7 @@ A pesar de todos sus beneficios, estas tecnologías también han sido **objeto d
 
 coreboot es un proyecto de firmware libre y liviano que reemplaza los BIOS propietarios. Se utiliza en todos los modelos actuales de Chromebooks, las computadoras con sistema operativo Chrome OS, además de en muchísimos modelos de computadoras personales enfocadas al software libre y, teóricamente, cualquier sistema con arquitectura IA-32, x86-64, ARM, ARM64, MIPS o RISC-V puede ejecutarlo.
 
-La pricipal ventaja de utilizar coreboot radica en que todo su código es libre, de manera que se puede minimizar la superficie de riesgo a ataques, porque se lo puede conocer en su totalidad. Además, al ser muy minimalista es rápido para arrancar y muy liviano. También es más flexible y se lo puede customizar según las necesidades de los usuarios.
+La principal ventaja de utilizar coreboot radica en que todo su código es libre, de manera que se puede minimizar la superficie de riesgo a ataques, porque se lo puede conocer en su totalidad. Además, al ser muy minimalista es rápido para arrancar y muy liviano. También es más flexible y se lo puede customizar según las necesidades de los usuarios.
 
 ### Linker
 
